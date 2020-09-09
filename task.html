@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <title>JSON Test</title>
+	
+	<style>
+	 .white-card{
+				background-color: #fff;
+				border-radius: 8px;
+	 }
+	 
+	 .sub-title{
+				font-weight: 800;
+				font-size: 20px;
+				margin-bottom: 15px;
+			}
+		.container{
+			max-width:1440px;
+		}	
+			
+		.content-title{
+				color: #4442b3;
+				font-weight: 800;
+				font-size: 20px;
+				border: none;
+				text-align: left;
+				margin: 25px 0px;
+			}	
+		
+		.json-data{
+				color: #4442b3;
+				font-weight: 400;
+				font-size: 20px;
+				border: none;
+				text-align: left;
+				margin: 25px 0px;
+			}
+		
+		.filter-btn{
+				padding: 10px 10px 20px;
+				display: flex;
+				align-items: center;
+				place-content: space-between;
+				flex-wrap: wrap;
+			}	
+
+			
+		.year{
+				background-color: #c1e6a3;
+				border: none;
+				border-radius: 6px;
+				font-size: 20px;
+				padding: 5px 25px 4px;
+				margin-top: 15px;
+				outline: none;
+			}	
+			
+			
+		.year.active{
+				background-color: #81cf42;
+			}
+
+			.white-card img{
+				width:100%;
+			}
+			
+			main{
+			    background-color: #f5f8fa;
+				font-family: Arial, Helvetica, sans-serif;
+				padding: 15px;
+			}
+			
+			.col-mdc-6, .col-lgc-3, .col-lgc-4, .col-lgc-9{
+				padding-right: 15px;
+				padding-left: 15px;
+			}
+			
+			.col-c6{
+				-ms-flex:0 0 50%;flex:0 0 50%;max-width:50%;
+			}
+			
+			.fr{
+				float: right;
+			}
+			
+			h1, h2{
+				font-weight: 700;
+			}
+			
+			h3{
+				font-size: 25px;
+				border-bottom: 1px solid black;
+				text-align: center;
+				margin: 0 auto;
+				width:250px;
+			}
+
+			
+			@media (min-width: 1024px) and (max-width: 1200px){
+				.year, .year-active{
+					padding: 5px 15px 4px;
+				}
+			}
+			
+			@media (min-width: 700px){
+				.col-mdc-6{
+					-ms-flex:0 0 50%;flex:0 0 50%;max-width:50%;
+				}
+			}
+			
+			@media (min-width: 1024px){
+				.col-lgc-3{
+					-ms-flex:0 0 25%;flex:0 0 25%;max-width:25%;
+				}
+				
+				.col-lgc-4{
+					-ms-flex:0 0  33.333333%;flex:0 0  33.333333%;max-width: 33.333333%;
+				}
+				
+				.col-lgc-9{
+					-ms-flex:0 0 75%;flex:0 0 75%;max-width:75%;
+				}
+				
+				h3{
+					font-size: 20px;
+					width:100%;
+				}
+	
+			}
+			
+			@media (max-width: 400px){
+				h3{
+						font-size: 24px;
+						margin: 0 auto;
+						width:210px;
+				}
+			}
+			
+			@media (max-width: 350px){
+				h1{
+					font-size: 34px;
+				}
+			}
+			
+			@media (max-width:1024px){
+				.a{
+					max-width: 350px;
+					margin: 0 auto;
+				}
+			}
+			
+	 </style>
+</head>
+<body>
+
+	<main>
+		<div class="container py-3">
+			<H1>SpaceX Launch Programs</H1>
+			<div class="row px-2">
+				<div class="col-sm-12 col-lgc-3">
+					<div class="white-card p-3 mb-4">
+						<div class="a">
+							<h2 class="filter-title">Filters</h2>
+							<div class="container-in">
+								<h3 class="container-title">Launch Year</h3>
+								
+								<div class="row filter-btn">
+									<div class="col-c6">
+										<button id="btn6" class="year year-val" value="&launch_year=2006">2006</button>
+									</div>
+									<div class="col-c6">
+										<button id="btn" class="year year-val fr" value="&launch_year=2007">2007</button>
+									</div>
+									<div class="col-c6">
+										<button id="btn" class="year year-val" value="&launch_year=2008">2008</button>
+									</div>
+									<div class="col-c6">
+										<button id="btn" class="year year-val fr" value="&launch_year=2009">2009</button>
+									</div>
+									<div class="col-c6">
+										<button id="btn" class="year year-val" value="&launch_year=2010">2010</button>
+									</div>
+									<div class="col-c6">	
+										<button id="btn" class="year year-val fr" value="&launch_year=2011">2011</button>
+									</div>
+									<div class="col-c6">	
+										<button id="btn" class="year year-val" value="&launch_year=2012">2012</button>
+									</div>
+									<div class="col-c6">	
+										<button id="btn" class="year year-val fr" value="&launch_year=2013">2013</button>
+									</div>
+									<div class="col-c6">	
+										<button id="btn" class="year year-val" value="&launch_year=2014">2014</button>
+									</div>
+									<div class="col-c6">	
+										<button id="btn" class="year year-val fr" value="&launch_year=2015">2015</button>
+									</div>
+									<div class="col-c6">	
+										<button id="btn" class="year year-val" value="&launch_year=2016">2016</button>
+									</div>
+									<div class="col-c6">	
+										<button id="btn" class="year year-val fr" value="&launch_year=2017">2017</button>
+									</div>
+									<div class="col-c6">	
+										<button id="btn" class="year year-val" value="&launch_year=2018">2018</button>
+									</div>
+									<div class="col-c6">	
+										<button id="btn" class="year year-val fr" value="&launch_year=2019">2019</button>
+									</div>
+									<div class="col-c6">	
+										<button id="btn" class="year year-val" value="&launch_year=2020">2020</button>
+									</div>
+									
+								</div>
+							</div>
+							
+							<div class="container-in">
+								<h3 class="container-title">Successful Launch</h3>
+								
+								<div class="filter-btn">
+									<button id="btn" class="year year-val" value="&launch_success=true">True</button>
+									<button id="btn" class="year year-val" value="&launch_success=false">False</button>
+								</div>
+							</div>
+							
+							<div class="container-in">
+								<h3 class="container-title">Successful Landing</h3>
+								
+								<div class="filter-btn">
+									<button id="btn" class="year year-val" value="&land_success=true">True</button>
+									<button id="btn" class="year year-val" value="&land_success=false">False</button>
+								</div>
+							</div>
+						</div>
+					</div>	
+				</div>
+				<div class="row col-sm-12 col-lgc-9 m-0 p-0 container-json">
+
+				</div>	
+						
+	</div>
+</div>
+</main>
+	
+
+ <script>
+ var url = 'https://api.spacexdata.com/v3/launches?limit=100';
+
+$(document).ready(function(){
+  $(".year-val").click(function(){
+
+	let $this = $(this);
+	var year = $this.val();
+	$(".year").removeClass("active");
+	$(this).addClass("active");
+
+	appendUrl(year);
+  });
+});
+
+function appendUrl(year){
+	
+
+	var yearVal = year;
+	
+	url = 'https://api.spaceXdata.com/v3/launches?limit=100'.concat(yearVal);
+
+    	async function getUsers() {
+	
+    try {
+        let res = await fetch(url);
+        return await res.json();
+    } catch (error) {
+        console.log(error);
+    }
+}
+async function renderUsers() {
+    let users = await getUsers();
+
+    let html = '';
+    users.map(user => {
+        let htmlSegment = ` 
+		<div class="col-mdc-6 col-lgc-4">
+			<div class="white-card p-3 mb-4">
+						<div>
+							<img src="${user.links.mission_patch}">
+						</div>
+						
+						
+						<h3 class="content-title">${user.mission_name} &nbsp;#${user.flight_number}</h3>
+						
+						<div class="product-details">
+							<div class="sub-title">Mission Ids:</div>
+							<div class="sub-title">Launch Year: <span class="json-data">${user.launch_year}</span></div>
+							<div class="sub-title">Successful Launch:  <span class="json-data">${user.launch_success}</span></div>
+							<div class="sub-title">Successful Landing: <span class="json-data">${user.rocket.first_stage.cores[0].land_success}</div>
+						</div>
+			</div>			
+		</div>`;
+
+        html += htmlSegment;
+    });
+
+    let container = document.querySelector('.container-json');
+    container.innerHTML = html;
+}
+
+renderUsers();
+
+}
+
+    	async function getUsers() {
+	
+    try {
+        let res = await fetch(url);
+        return await res.json();
+    } catch (error) {
+        console.log(error);
+    }
+}
+async function renderUsers() {
+    let users = await getUsers();
+
+    let html = '';
+    users.map(user => {
+        let htmlSegment = ` 
+		<div class="col-mdc-6 col-lgc-4">
+			<div class="white-card p-3 mb-4">
+						<div>
+							<img src="${user.links.mission_patch}">
+						</div>
+						
+						
+						<h3 class="content-title">${user.mission_name} &nbsp;#${user.flight_number}</h3>
+						
+						<div class="product-details">
+							<div class="sub-title">Mission Ids:</div>
+							<div class="sub-title">Launch Year: <span class="json-data">${user.launch_year}</span></div>
+							<div class="sub-title">Successful Launch:  <span class="json-data">${user.launch_success}</span></div>
+							<div class="sub-title">Successful Landing:</div>
+						</div>
+			</div>			
+		</div>`;
+
+        html += htmlSegment;
+    });
+
+    let container = document.querySelector('.container-json');
+    container.innerHTML = html;
+}
+
+renderUsers();
+
+    </script>
+
+</body>
+</html>
